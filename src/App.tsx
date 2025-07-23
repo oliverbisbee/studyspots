@@ -1,17 +1,16 @@
 import React from 'react';
 import './App.css';
+import Map from './map';
 
 function App() {
   return (
     <div className="App">
-      <header>
+      <header style={{ padding: '20px', backgroundColor: '#f8f9fa' }}>
         <h1>StudySpots TO</h1>
         <p>Find the perfect study spot around UofT</p>
       </header>
-      <main>
-        <div id="map-container" style={{ height: '500px', backgroundColor: '#f0f0f0', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-          <p>Map will go here</p>
-        </div>
+      <main style={{ padding: '20px' }}>
+        <Map />
       </main>
     </div>
   );
