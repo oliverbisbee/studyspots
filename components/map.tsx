@@ -129,7 +129,7 @@ const MapComponent: React.FC<{ activeFilter: string }> = ({ activeFilter }) => {
       <div 
         className={`transition-all duration-300 ${selectedSpot ? 'w-2/3' : 'w-full'}`}
       >
-        <div ref={ref} className="h-[575px] w-full" />
+        <div ref={ref} className="h-[515px] w-full" />
       </div>
       <SidePanel spot={selectedSpot} onClose={handleClosePanel} />
     </div>

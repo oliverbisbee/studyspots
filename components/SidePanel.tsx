@@ -10,7 +10,7 @@ export default function SidePanel({ spot, onClose }: SidePanelProps) {
   if (!spot) return null;
 
   return (
-    <div className="w-1/3 h-[575px] bg-gray-50 shadow-2xl overflow-y-auto">
+    <div className="w-1/3 h-[515px] bg-gray-50 shadow-2xl overflow-y-auto">
       {/* Close button */}
       <button
         onClick={onClose}
