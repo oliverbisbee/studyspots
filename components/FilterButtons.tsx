@@ -35,7 +35,7 @@ const FilterButtons: React.FC<FilterButtonsProps> = ({ onFilterChange, activeFil
     <div style={{ 
       padding: '15px',
       backgroundColor: '#f8f9fa',
-      borderRadius: '8px',
+      borderRadius: '40px',
       marginBottom: '10px',
       textAlign: 'center' as const
     }}>

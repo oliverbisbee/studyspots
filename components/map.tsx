@@ -2,6 +2,7 @@
 import { useRef, useState, useEffect } from 'react';
 import { Wrapper, Status } from '@googlemaps/react-wrapper';
 import { studySpots, StudySpot } from './studySpots';
+import SidePanel from './SidePanel';
 
 const render = (status: Status, activeFilter: string) => {
   switch (status) {
@@ -18,6 +19,7 @@ const MapComponent: React.FC<{ activeFilter: string }> = ({ activeFilter }) => {
   const ref = useRef<HTMLDivElement>(null);
   const [map, setMap] = useState<google.maps.Map | null>(null);
   const [markers, setMarkers] = useState<google.maps.Marker[]>([]);
+  const [selectedSpot, setSelectedSpot] = useState<StudySpot | null>(null);
 
   const getFilteredSpots = () => {
     switch (activeFilter) {
@@ -41,10 +43,10 @@ const MapComponent: React.FC<{ activeFilter: string }> = ({ activeFilter }) => {
 
   const getMarkerColor = (type: StudySpot['type']) => {
     switch (type) {
-      case 'library': return '#DC2626';   // Red
-      case 'cafe': return '#EA580C';      // Orange
-      case 'building': return '#2563EB';  // Blue
-      case 'outdoor': return '#16A34A';   // Green
+      case 'library': return '#DC2626';
+      case 'cafe': return '#EA580C';
+      case 'building': return '#2563EB';
+      case 'outdoor': return '#16A34A';
       default: return '#DC2626';
     }
   };
@@ -105,7 +107,10 @@ const MapComponent: React.FC<{ activeFilter: string }> = ({ activeFilter }) => {
         });
 
         marker.addListener('click', () => {
-          alert(`${spot.name}\n${spot.description}\nFloors: ${spot.floors}\nHours: ${spot.hours}\nT-Card Required: ${spot.tcardRequired ? 'Yes' : 'No'}\nNoise Level: ${spot.noiseLevel}\nWifi: ${spot.wifiQuality}`);
+          setSelectedSpot(null);
+          setTimeout(() => {
+            setSelectedSpot(spot);
+          }, 10);
         });
 
         newMarkers.push(marker);
@@ -115,7 +120,20 @@ const MapComponent: React.FC<{ activeFilter: string }> = ({ activeFilter }) => {
     }
   }, [map, activeFilter]);
 
-  return <div ref={ref} className="h-[500px] w-full" />;
+  const handleClosePanel = () => {
+    setSelectedSpot(null);
+  };
+
+  return (
+    <div className="relative flex">
+      <div 
+        className={`transition-all duration-300 ${selectedSpot ? 'w-2/3' : 'w-full'}`}
+      >
+        <div ref={ref} className="h-[575px] w-full" />
+      </div>
+      <SidePanel spot={selectedSpot} onClose={handleClosePanel} />
+    </div>
+  );
 };
 
 const Map: React.FC<{ activeFilter: string }> = ({ activeFilter }) => {
