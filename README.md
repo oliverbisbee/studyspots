@@ -1,36 +1,160 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# StudySpots TO 📚
+
+An interactive map application to help University of Toronto students find the perfect study spot on campus. Browse 20+ curated study locations including libraries, cafes, academic buildings, and outdoor spaces.
+
+🔗 **Live Demo**: [https://studyspotstoronto.vercel.app/](https://studyspotstoronto.vercel.app/)
+
+## Features
+
+- 🗺️ **Interactive Google Maps** - Visual map centered on UofT campus with color-coded location markers
+- 🎯 **Smart Filtering** - Filter locations by type (Libraries, Cafés, Buildings, Outdoor) or T-Card requirement
+- 📍 **20+ Study Locations** - Carefully curated spots across St. George campus
+- 📱 **Detailed Information Panel** - Slide-out panel with comprehensive spot details:
+  - Operating hours
+  - Number of floors
+  - T-Card access requirements
+  - Noise level indicators
+  - Seating arrangements
+  - WiFi quality
+- 🎨 **Clean, Modern UI** - Built with Tailwind CSS for a responsive, polished experience
+- 🔴🟠🔵🟢 **Color-Coded Markers**:
+  - Red: Libraries
+  - Orange: Cafés
+  - Blue: Academic Buildings
+  - Green: Outdoor Spaces
+
+## Tech Stack
+
+- **Framework**: [Next.js 16](https://nextjs.org/) (App Router)
+- **Language**: [TypeScript](https://www.typescriptlang.org/)
+- **Styling**: [Tailwind CSS 4](https://tailwindcss.com/)
+- **Maps**: [Google Maps JavaScript API](https://developers.google.com/maps/documentation/javascript)
+- **Maps Integration**: [@googlemaps/react-wrapper](https://www.npmjs.com/package/@googlemaps/react-wrapper)
+- **Icons**: [Font Awesome](https://fontawesome.com/)
+- **Deployment**: [Vercel](https://vercel.com/)
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
+- Node.js 18+ and npm
+- Google Maps API key ([Get one here](https://developers.google.com/maps/documentation/javascript/get-api-key))
+
+### Installation
+
+1. Clone the repository:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/oliverbisbee/studyspots.git
+cd studyspots
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install dependencies:
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Create a `.env.local` file in the root directory:
+```bash
+NEXT_PUBLIC_GOOGLE_MAPS_API_KEY=your_api_key_here
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. Run the development server:
+```bash
+npm run dev
+```
 
-## Learn More
+5. Open [http://localhost:3000](http://localhost:3000) in your browser
 
-To learn more about Next.js, take a look at the following resources:
+## Project Structure
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+studyspots/
+├── app/
+│   ├── layout.tsx          # Root layout with metadata
+│   ├── page.tsx             # Home page with filter state
+│   ├── globals.css          # Global styles and Tailwind imports
+│   └── favicon.ico
+├── components/
+│   ├── map.tsx              # Google Maps component with markers
+│   ├── SidePanel.tsx        # Location details slide-out panel
+│   ├── FilterButtons.tsx    # Filter button group
+│   └── studySpots.ts        # Study location data and types
+├── public/
+├── .env.local               # Environment variables (not committed)
+├── tailwind.config.ts       # Tailwind configuration
+├── next.config.ts           # Next.js configuration
+└── package.json
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Available Scripts
 
-## Deploy on Vercel
+```bash
+npm run dev      # Start development server
+npm run build    # Build for production
+npm run start    # Start production server
+npm run lint     # Run ESLint
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Study Locations
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The app currently features 20+ study spots including:
+
+- **Libraries**: Robarts Library, Gerstein Science Library, Hart House Library, and more
+- **Cafés**: Starbucks (Robarts), campus coffee shops
+- **Buildings**: Bahen Centre, Sidney Smith Commons, and other academic buildings
+- **Outdoor Spaces**: King's College Circle and other outdoor study areas
+
+Each location includes:
+- Exact coordinates for map placement
+- Floor count
+- Operating hours
+- T-Card access requirements
+- Noise level (quiet/moderate/busy)
+- Seating arrangements
+- WiFi quality ratings
+
+## How to Use
+
+1. **Browse the Map**: Pan and zoom around the UofT campus to explore study locations
+2. **Filter Locations**: Click filter buttons to show only specific types of spots
+3. **View Details**: Click any colored marker to open the information panel
+4. **Plan Your Study Session**: Use the details to find a spot that matches your needs
+
+## Contributing
+
+Contributions are welcome! If you know a great study spot that's missing:
+
+1. Fork the repository
+2. Add the location to `components/studySpots.ts`
+3. Follow the existing data structure
+4. Submit a pull request
+
+## Future Enhancements
+
+- [ ] Add more study locations across campus
+- [ ] User reviews and ratings
+- [ ] Real-time occupancy indicators
+- [ ] Bookmarking favorite spots
+- [ ] Mobile app version
+- [ ] Study room booking integration
+- [ ] Photos for each location
+
+## License
+
+This project is open source and available under the MIT License.
+
+## Acknowledgments
+
+- University of Toronto for the amazing study spaces
+- Google Maps Platform for mapping functionality
+- Vercel for hosting and deployment
+
+## Contact
+
+Built by [Oliver Bisbee](https://github.com/oliverbisbee)
+
+Found a bug or have a suggestion? [Open an issue](https://github.com/oliverbisbee/studyspots/issues)
+
+---
+
+**Happy studying! 🎓📖**
