@@ -99,10 +99,10 @@ npm run lint     # Run ESLint
 
 The app currently features 20+ study spots including:
 
-- **Libraries**: Robarts Library, Gerstein Science Library, Hart House Library, and more
-- **Cafés**: Starbucks (Robarts), campus coffee shops
-- **Buildings**: Bahen Centre, Sidney Smith Commons, and other academic buildings
-- **Outdoor Spaces**: King's College Circle and other outdoor study areas
+- **Libraries**: Robarts, Gerstein, Graham ...
+- **Cafés**: Café Reznikoff, Diablos' Coffee Bar ...
+- **Buildings**: Bahen, Sidney Smith Commons ...
+- **Outdoor Spaces**: Trinity College Quad, KCC ...
 
 Each location includes:
 - Exact coordinates for map placement
